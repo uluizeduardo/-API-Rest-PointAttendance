@@ -1,5 +1,6 @@
 package API.ControleDePonto.model;
 
+import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
@@ -15,6 +16,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @EqualsAndHashCode
 @Builder
+@Entity
 public class Location {
 
     @Id
