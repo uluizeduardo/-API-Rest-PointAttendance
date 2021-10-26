@@ -4,6 +4,7 @@ import API.ControleDePonto.model.WorkingDay;
 import API.ControleDePonto.service.WorkingDayService;
 import java.util.List;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -27,13 +28,23 @@ public class WorkingDayController {
         return workingDayService.findAll();
     }
 
-    @GetMapping("/{id}workingday")
+    @GetMapping("/{idworkingday}")
     public ResponseEntity<WorkingDay> getWorkingDayById(@PathVariable("idWorkingDay") Long idWorkingDay) throws Exception {
         return ResponseEntity.ok(workingDayService.getById(idWorkingDay).orElseThrow(() -> new Exception("WorkingDay not found")));
     }
-    
+
     @PostMapping
-    public WorkingDay updateWorkingDay(@RequestBody WorkingDay workingDay){
+    public WorkingDay updateWorkingDay(@RequestBody WorkingDay workingDay) {
         return workingDayService.save(workingDay);
+    }
+
+    @DeleteMapping("/{idworkingday}")
+    public ResponseEntity<WorkingDay> deleteWorkingDayById(@PathVariable("idworkingday") Long idworkingday) {
+        try {
+            workingDayService.deleteWorkingDay(idworkingday);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return (ResponseEntity<WorkingDay>) ResponseEntity.ok();
     }
 }

@@ -31,4 +31,9 @@ public class WorkingDayService {
     public Optional<WorkingDay> getById(Long idWorkingDay) {
         return workingDayRepository.findById(idWorkingDay);
     }
+
+    //Method to delete data by id in database
+    public void deleteWorkingDay(Long idWorkingDay) {
+        workingDayRepository.deleteById(idWorkingDay);
+    }
 }
