@@ -31,4 +31,9 @@ public class WorkingDayController {
     public ResponseEntity<WorkingDay> getWorkingDayById(@PathVariable("idWorkingDay") Long idWorkingDay) throws Exception {
         return ResponseEntity.ok(workingDayService.getById(idWorkingDay).orElseThrow(() -> new Exception("WorkingDay not found")));
     }
+    
+    @PostMapping
+    public WorkingDay updateWorkingDay(@RequestBody WorkingDay workingDay){
+        return workingDayService.save(workingDay);
+    }
 }

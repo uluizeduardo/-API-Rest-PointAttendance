@@ -17,7 +17,7 @@ public class WorkingDayService {
         this.workingDayRepository = workDayRepository;
     }
 
-    //Method for saving data to the database
+    //Method for saving and updating data in the database
     public WorkingDay save(WorkingDay workingDay) {
         return workingDayRepository.save(workingDay);
     }
