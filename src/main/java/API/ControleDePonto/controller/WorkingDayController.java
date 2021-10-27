@@ -50,6 +50,7 @@ public class WorkingDayController {
     public ResponseEntity<?> deleteWorkingDayById(@RequestParam(name = "idWorkingDay") Long idworkingday) {
         try {
             workingDayService.deleteWorkingDay(idworkingday);
+            return new ResponseEntity<String>("Usuário deletado com sucesso", HttpStatus.OK);
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
